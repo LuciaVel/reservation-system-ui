@@ -1,0 +1,121 @@
+<!-- BEGIN page-header -->
+ <div *ngIf="!isEditMode">
+    <h1 class="page-header">Add New User</h1>
+ </div>
+ <div *ngIf="isEditMode">
+  <h1 class="page-header">Update User</h1>
+</div>
+<!-- END page-header -->
+
+<!-- BEGIN panel -->
+<div class="panel panel-inverse" data-sortable-id="table-basic-7">
+  <!-- BEGIN panel-body -->
+  <div class="panel-body">
+    <form [formGroup]="userDetailForm">
+      <div class="row mb-15px">
+        <label class="form-label col-form-label col-md-3">First Name</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control mb-5px" 
+                  placeholder="Enter first name" formControlName="firstName"
+                  [ngClass]="{'is-invalid': userDetailForm.get('firstName').touched && userDetailForm.get('firstName').errors}">
+          <div *ngIf="userDetailForm.get('firstName').touched && userDetailForm.get('firstName').errors?.required" class="invalid-feedback">
+            First Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="row mb-15px">
+        <label class="form-label col-form-label col-md-3">Last Name</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control mb-5px" 
+                  placeholder="Enter last name" formControlName="lastName"
+                  [ngClass]="{'is-invalid': userDetailForm.get('lastName').touched && userDetailForm.get('lastName').errors}">
+          <div *ngIf="userDetailForm.get('lastName').touched && userDetailForm.get('lastName').errors?.required" class="invalid-feedback">
+            Last Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="row mb-15px">
+        <label class="form-label col-form-label col-md-3">Email address</label>
+        <div class="col-md-9">
+          <input type="email" class="form-control mb-5px" 
+                  placeholder="Enter email" formControlName="email"
+                  [ngClass]="{'is-invalid': userDetailForm.get('email').touched && userDetailForm.get('email').errors}">
+          <div *ngIf="userDetailForm.get('email').touched && userDetailForm.get('email').errors?.required" class="invalid-feedback">
+            Email is required.
+          </div>
+          <div *ngIf="userDetailForm.get('email').touched && userDetailForm.get('email').errors?.email" class="invalid-feedback">
+            Please enter a valid email address.
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!isEditMode" class="row mb-15px">
+        <label class="form-label col-form-label col-md-3">New Password</label>
+        <div class="col-md-9">
+          <input type="password" class="form-control mb-5px" 
+                  placeholder="Enter Password" formControlName="password"
+                  [ngClass]="{'is-invalid': userDetailForm.get('password').touched && userDetailForm.get('password').errors}">
+          <div *ngIf="userDetailForm.get('password').touched && userDetailForm.get('password').errors?.required" class="invalid-feedback">
+            Password is required.
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!isEditMode" class="row mb-15px">
+        <label class="form-label col-form-label col-md-3">New Password (Confirmation)</label>
+        <div class="col-md-9">
+          <input type="password" class="form-control mb-5px" 
+                  placeholder="Confirm Password" formControlName="confirmPassword"
+                  [ngClass]="{'is-invalid': userDetailForm.get('confirmPassword').touched && userDetailForm.get('confirmPassword').errors}">
+          <div *ngIf="userDetailForm.get('confirmPassword').errors?.required && userDetailForm.get('confirmPassword').touched" class="invalid-feedback">
+            Confirm Password is required.
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!isEditMode" class="row mb-15px">
+        <label class="form-label col-form-label col-md-3">User Type</label>
+        <div class="col-md-9">
+          <select class="form-select" formControlName="roleId">
+            <option *ngFor="let role of roleList.RoleList" [value]="role.id">
+              {{ role.description }}
+            </option>
+          </select>
+          <div *ngIf="userDetailForm.get('roleId').touched && userDetailForm.get('roleId').errors?.required" class="invalid-feedback">
+            Role is required.
+          </div>
+        </div>
+      </div>
+      <div class="row mb-15px">
+        <div class="d-flex justify-content-center">
+          <div class="col-md-1">
+            <a href="#save-confirm-modal" class="btn btn-primary" data-bs-toggle="modal">Submit</a>
+          </div>
+          <div class="col-md-1">
+            <a (click)="onCancel()" class="btn btn-info">Cancel</a>
+          </div>
+        </div>
+        
+        <!-- #modal-dialog -->
+        <div class="modal fade" id="save-confirm-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Confirmation</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Are you sure you want to add this user?
+                </p>
+              </div>
+              <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal">Close</a>
+                <a href="javascript:;" (click)="onSubmit()" class="btn btn-success" data-bs-dismiss="modal">Confirm</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END panel -->
+

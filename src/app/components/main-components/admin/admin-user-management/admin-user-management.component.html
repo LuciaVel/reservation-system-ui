@@ -1,0 +1,85 @@
+<!-- BEGIN page-header -->
+<h1 class="page-header">User Management</h1>
+<!-- END page-header -->
+
+<!-- BEGIN panel -->
+<div class="panel panel-inverse" data-sortable-id="table-basic-7">
+	<!-- BEGIN panel-body -->
+	<div class="panel-body">
+		<div>
+			<button type="button" class="btn btn-info me-1 mb-1" routerLink='/admin-add-user' routerLinkActive="active">Add User</button>
+		</div>
+		<!-- BEGIN table-responsive -->
+		<div class="table-responsive">
+			<table class="table table-striped mb-0 align-middle">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Email Address</th>
+						<th>Type</th>
+						<th width="1%">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let user of userList.UserList">
+						<td>{{user.id}}</td>
+						<td>{{user.firstName + ' ' + user.lastName}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.role}}</td>
+						<td nowrap>
+							<a class="btn btn-sm btn-primary w-60px me-1" (click)="onEdit(user.id)">Edit</a>
+							<a href="#delete-user-alert-modal-{{user.id}}" class="btn btn-sm btn-danger w-60px me-1" data-bs-toggle="modal">Delete</a>
+							
+							<!-- #modal-alert -->
+							<div class="modal fade" [attr.id]="'delete-user-alert-modal-' + user.id">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Deleting User</h4>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+										</div>
+										<div class="modal-body">
+											<div class="alert alert-danger">
+												<h5><i class="fa fa-info-circle"></i> Alert</h5>
+												<p>This user will be deleted permanently.</p>
+												<p>{{user.firstName + ' ' + user.lastName}}</p>
+												<p>Are you sure you want to proceed?</p>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal">Close</a>
+											<a href="javascript:;" (click)="onDelete(user.id)" class="btn btn-danger" data-bs-dismiss="modal">Action</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- END table-responsive -->
+		<br>
+		<div>
+			<ul class="float-end pagination mb-2">
+				<div class="page-item" [class.disabled]="currPageNo === 1">
+					<a href="javascript:;" class="page-link" (click)="changePage(currPageNo - 1)">«</a>
+					</div>
+					<div *ngFor="let page of pages" class="page-item" [class.active]="page === currPageNo">
+					<a href="javascript:;" class="page-link" (click)="changePage(page)">{{ page }}</a>
+					</div>
+					<div class="page-item" [class.disabled]="currPageNo === totalPages">
+					<a href="javascript:;" class="page-link" (click)="changePage(currPageNo + 1)">»</a>
+				</div>
+			</ul>
+		</div>
+	</div>
+	<!-- END panel-body -->
+	<!-- BEGIN hljs-wrapper -->
+	<!-- <div class="hljs-wrapper">
+		<pre><code class="html" data-url="../assets/data/table-basic/code-7.json"></code></pre>
+	</div> -->
+	<!-- END hljs-wrapper -->
+</div>
+<!-- END panel -->
