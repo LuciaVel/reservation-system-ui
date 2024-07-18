@@ -1,0 +1,55 @@
+<!-- BEGIN login -->
+<div class="login login-v1">
+	<!-- BEGIN login-container -->
+	<div class="login-container">
+		<!-- BEGIN login-header -->
+		<div class="login-header">
+			<div class="brand">
+				<div class="d-flex align-items-center">
+					<b>Reservation System</b> Login
+				</div>
+				<!-- <small>Bootstrap 5 Responsive Admin Template</small> -->
+			</div>
+			<div class="icon">
+				<i class="fa fa-lock"></i>
+			</div>
+		</div>
+		<!-- END login-header -->
+		
+		<!-- BEGIN login-body -->
+		<div class="login-body">
+			<!-- BEGIN login-content -->
+			<div class="login-content fs-13px">
+				<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                    <div *ngIf="invalidLogin" class="alert alert-danger alert-dismissible fade show mb-0">
+                        <strong>Login Failed!</strong>
+                        Invalid username or password.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    <br>
+					<div class="form-floating mb-20px">
+						<input type="email" class="form-control fs-13px h-45px" id="emailAddress" placeholder="Email Address" [(ngModel)]="credentials.username"/>
+						<label for="emailAddress" class="d-flex align-items-center py-0">Email Address</label>
+					</div>
+					<div class="form-floating mb-20px">
+						<input type="password" class="form-control fs-13px h-45px" id="password" placeholder="Password" [(ngModel)]="credentials.password"/>
+						<label for="password" class="d-flex align-items-center py-0">Password</label>
+					</div>
+					<div class="form-check mb-20px">
+						<input class="form-check-input" type="checkbox" value="" id="rememberMe" />
+						<label class="form-check-label" for="rememberMe">
+							Remember Me
+						</label>
+					</div>
+					<div class="login-buttons">
+						<button type="submit" class="btn h-45px btn-theme d-block w-100 btn-lg">Sign me in</button>
+					</div>
+				</form>
+			</div>
+			<!-- END login-content -->
+		</div>
+		<!-- END login-body -->
+	</div>
+	<!-- END login-container -->
+</div>
+<!-- END login -->

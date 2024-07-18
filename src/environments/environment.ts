@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://localhost:7271',  // Your development API URL
+  apiBaseUrl: 'https://localhost:7271/api',  // Your development API URL
   pageSize: 15,
 };
