@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } 		 from '@angular/core';
-import { AppMenuService } from '../../services/app-menus.service';
+import { AppMenuService } from '../../service/app-menus.service';
 import { Router, ActivatedRoute, NavigationEnd, RouterLink } from '@angular/router';
 import { NgFor, NgIf, NgClass } from '@angular/common';
 

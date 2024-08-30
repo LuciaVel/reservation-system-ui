@@ -1,7 +1,8 @@
 import { Component, Input, Output, EventEmitter, Renderer2, OnDestroy } from '@angular/core';
-import { AppSettings } from '../../services/app-settings.service';
+import { AppSettings } from '../../service/app-settings.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgIf, NgClass } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 declare var slideToggle: any;
 
@@ -12,10 +13,15 @@ declare var slideToggle: any;
     imports: [NgIf, NgClass, ReactiveFormsModule, FormsModule]
 })
 export class HeaderComponent implements OnDestroy {
-  @Input() appSidebarTwo;
+  	@Input() appSidebarTwo;
 	@Output() appSidebarEndToggled = new EventEmitter<boolean>();
 	@Output() appSidebarMobileToggled = new EventEmitter<boolean>();
 	@Output() appSidebarEndMobileToggled = new EventEmitter<boolean>();
+
+	logout = () => {
+		localStorage.removeItem("jwt");
+		this.router.navigate(['/login']);
+	}
 	
   toggleAppSidebarMobile() {
 		this.appSidebarMobileToggled.emit(true);
@@ -44,6 +50,6 @@ export class HeaderComponent implements OnDestroy {
 	  this.appSettings.appHeaderMegaMenuMobileToggled = false;
 	}
 
-  constructor(private renderer: Renderer2, public appSettings: AppSettings) {
+  constructor(private renderer: Renderer2, public appSettings: AppSettings, private router: Router) {
   }
 }

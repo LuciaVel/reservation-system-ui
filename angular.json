@@ -15,15 +15,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": {
-              "base": "dist"
-            },
+            "outputPath": "dist",
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/assets",
@@ -42,8 +39,7 @@
             ],
             "allowedCommonJsDependencies": [
             	"lodash", "lity", "jquery", "quill", "bezier-easing", "ev-emitter", "moment", "apexcharts", "jsvectormap", "rfdc", "@yaireo/tagify"
-            ],
-            "browser": "src/main.ts"
+            ]
           },
           "configurations": {
             "production": {
@@ -68,7 +64,9 @@
               ]
             },
             "development": {
+							"buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true

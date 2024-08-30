@@ -1,8 +1,8 @@
 import { Component, HostListener, Renderer2, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd, NavigationStart, ActivatedRoute, RouterOutlet } from '@angular/router';
-import { AppVariablesService } from './services/app-variables.service';
-import { AppSettings } from './services/app-settings.service';
+import { AppVariablesService } from './service/app-variables.service';
+import { AppSettings } from './service/app-settings.service';
 import { ThemePanelComponent } from './components/theme-panel/theme-panel.component';
 import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';

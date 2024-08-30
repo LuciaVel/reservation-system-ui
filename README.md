@@ -1,39 +1,27 @@
-# Reservation System
-This application has two part with front-end app created with Angular 17 and back-end app created with ASP.NET CORE.
+# ColorAdmin
 
-## Installation
-For Front-end application (Angular 17):
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
 
-```bash
-npm install --force
-```
+## Development server
 
-To run and build the application:
-```bash
-ng serve
-```
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-For Back-end application (ASP.NET CORE using .NET CORE 8):
+## Code scaffolding
 
-Run the application on Visual Studio as usual.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Purpose of the application
-The purpose of the application is to show the ability to create a web application using Angular and ASP.NET CORE. 
-Therefore, this application does not represent a real system, meaning its business logics are not complex like those we see in a real reservation system like Agoda, Booking, etc.
-In this ASP.NET CORE application, I specifically choose Dependency Injection as a design pattern to implement this server-side application.
+## Build
 
-## A work in progress
-This application is a work in progress. Right now I only implemented a User Management in admin page. The other parts of the application will come out later.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-Implemented functions:
-- User Management (Admin) - it can add/delete/update/get users from/to the system.
+## Running unit tests
 
-Implementing functions:
-- Login and Authorization features.
-- Owner page for adding their accommodations/hotel.
-- Owner page for showing which user reserved a room in their accommodations/hotel.
-- Home page for doing a reservation (Member/Guest).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## License
+## Running end-to-end tests
 
-[MIT](https://choosealicense.com/licenses/mit/)
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

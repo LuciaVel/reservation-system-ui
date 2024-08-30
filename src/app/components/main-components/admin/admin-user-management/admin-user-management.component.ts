@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import { AdminUserManagementService } from '../../../../services/main-services/admin/admin-user-management.service'; 
+import { AdminUserManagementService } from '../../../../service/main-services/admin/admin-user-management.service'; 
 import { UserList, UserModel } from '../../../../interfaces/user-interfaces/user-detail.interface';
 import { environment } from '../../../../../environments/environment';
 import { PanelComponent } from '../../../panel/panel.component';
@@ -30,20 +30,6 @@ export class AdminUserManagementComponent implements OnInit {
     this.fetchUserList();
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    //this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  viewUser(id: number) {
-    // Implement view user logic here
-    console.log('View user with id:', id);
-  }
-
-  addUser(user: UserModel) {
-    //this.dataSource.data = [...this.dataSource.data, user];
-  }
-
   calculatePages() {
     this.pages = Array.from({length: this.totalPages}, (_, i) => i + 1);
     console.log(this.pages);
@@ -54,8 +40,7 @@ export class AdminUserManagementComponent implements OnInit {
       return;
     }
     this.currPageNo = page;
-    // Call your service or method to fetch data for the current page here
-    console.log(`Current page is now ${page}`); // Debugging output
+    console.log(`Current page is now ${page}`);
   }
 
   fetchUserList() {
@@ -80,7 +65,6 @@ export class AdminUserManagementComponent implements OnInit {
       next: () => {
         console.log('User deleted successfully');
         this.fetchUserList();
-        //this.router.navigate(['/user-management']);
       },
       error: (error) => console.error('Error deleting user', error)
     });

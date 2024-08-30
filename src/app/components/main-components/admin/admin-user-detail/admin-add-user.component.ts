@@ -3,9 +3,9 @@ import { CommonModule, NgFor, NgClass, NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PanelComponent } from '../../../panel/panel.component';
-import { MasterDataService } from '../../../../services/main-services/master-data/master-data.service'
+import { MasterDataService } from '../../../../service/main-services/master-data/master-data.service'
 import { RoleList } from '../../../../interfaces/master-data/master-data.interface';
-import { AdminUserManagementService } from '../../../../services/main-services/admin/admin-user-management.service';
+import { AdminUserManagementService } from '../../../../service/main-services/admin/admin-user-management.service';
 
 
 @Component({

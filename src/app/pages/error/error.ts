@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AppSettings } from '../../services/app-settings.service';
+import { AppSettings } from '../../service/app-settings.service';
 import { RouterLink } from '@angular/router';
 
 @Component({

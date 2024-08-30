@@ -13,7 +13,7 @@
   <ng-template #sidebarNav>
   	<!-- BEGIN menu -->
 		<div class="menu">
-			<!-- <div class="menu-item menu-profile" *ngIf="!appSettings.appSidebarSearch">
+			<div class="menu-item menu-profile" *ngIf="!appSettings.appSidebarSearch">
 				<a href="javascript:;" class="menu-profile-link" (click)="toggleNavProfile($event)">
 					<div class="menu-profile-cover with-shadow"></div>
 					<div class="menu-profile-image menu-profile-image-icon bg-gray-900 text-gray-600">
@@ -50,7 +50,7 @@
 					</a>
 				</div>
 				<div class="menu-divider m-0"></div>
-			</div> -->
+			</div>
 			
 			<div class="menu-search mb-n3" *ngIf="appSettings.appSidebarSearch">
         <input type="text" class="form-control" placeholder="Sidebar menu filter..." (keyup)="appSidebarSearch($event)" />

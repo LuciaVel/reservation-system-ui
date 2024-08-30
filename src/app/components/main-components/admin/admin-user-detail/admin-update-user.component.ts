@@ -3,7 +3,7 @@ import { NgFor, NgClass, NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PanelComponent } from '../../../panel/panel.component';
-import { AdminUserManagementService } from '../../../../services/main-services/admin/admin-user-management.service';
+import { AdminUserManagementService } from '../../../../service/main-services/admin/admin-user-management.service';
 
 @Component({
     standalone: true,

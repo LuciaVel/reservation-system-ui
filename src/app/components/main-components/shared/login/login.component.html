@@ -6,7 +6,8 @@
 		<div class="login-header">
 			<div class="brand">
 				<div class="d-flex align-items-center">
-					<b>Reservation System</b> Login
+					<!-- <span class="logo"></span>  -->
+					<b>Reservation</b> System
 				</div>
 				<!-- <small>Bootstrap 5 Responsive Admin Template</small> -->
 			</div>
@@ -28,11 +29,11 @@
                     </div>
                     <br>
 					<div class="form-floating mb-20px">
-						<input type="email" class="form-control fs-13px h-45px" id="emailAddress" placeholder="Email Address" [(ngModel)]="credentials.username"/>
+						<input type="email" class="form-control fs-13px h-45px" id="emailAddress" placeholder="Email Address" [(ngModel)]="credentials.username" name="username"/>
 						<label for="emailAddress" class="d-flex align-items-center py-0">Email Address</label>
 					</div>
 					<div class="form-floating mb-20px">
-						<input type="password" class="form-control fs-13px h-45px" id="password" placeholder="Password" [(ngModel)]="credentials.password"/>
+						<input type="password" class="form-control fs-13px h-45px" id="password" placeholder="Password" [(ngModel)]="credentials.password" name="password"/>
 						<label for="password" class="d-flex align-items-center py-0">Password</label>
 					</div>
 					<div class="form-check mb-20px">

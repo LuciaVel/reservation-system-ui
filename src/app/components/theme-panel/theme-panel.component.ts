@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { AppVariablesService } from '../../services/app-variables.service';
-import { AppSettings } from '../../services/app-settings.service';
+import { AppVariablesService } from '../../service/app-variables.service';
+import { AppSettings } from '../../service/app-settings.service';
 import { ScrollViewport, NgScrollbar } from 'ngx-scrollbar';
 import { NgClass, NgFor } from '@angular/common';
 

@@ -299,6 +299,7 @@ ngb-datepicker {
 		& .tagify {
 			border: none;
 			flex: 1;
+			display: flex;
 		
 			& .tagify__tag {
 				background: var(--#{$prefix}component-active-bg);

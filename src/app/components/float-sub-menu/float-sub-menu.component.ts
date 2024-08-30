@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } 		 from '@angular/core';
-import { AppSettings } from '../../services/app-settings.service';
+import { AppSettings } from '../../service/app-settings.service';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 import { NgIf, NgFor, NgClass, NgTemplateOutlet } from '@angular/common';
 

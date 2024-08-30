@@ -1,8 +1,8 @@
-import { Component, Input, Output, EventEmitter, ElementRef, HostListener, ViewChild, OnInit, AfterViewChecked, AfterViewInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef, HostListener, ViewChild, OnInit, AfterViewChecked, AfterViewInit } 		 from '@angular/core';
 import { slideUp } from '../../composables/slideUp.js';
 import { slideToggle } from '../../composables/slideToggle.js';
-import { AppMenuService } from '../../services/app-menus.service';
-import { AppSettings } from '../../services/app-settings.service';
+import { AppMenuService } from '../../service/app-menus.service';
+import { AppSettings } from '../../service/app-settings.service';
 import { FloatSubMenuComponent } from '../float-sub-menu/float-sub-menu.component';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 import { ScrollViewport, NgScrollbar } from 'ngx-scrollbar';
@@ -35,12 +35,12 @@ export class SidebarComponent implements AfterViewChecked {
 	appSidebarFloatSubMenuTop;
 	appSidebarFloatSubMenuLeft = '60px';
 	appSidebarFloatSubMenuRight;
-	appSidebarFloatSubMenuBottom;
-	appSidebarFloatSubMenuArrowTop;
-	appSidebarFloatSubMenuArrowBottom;
-	appSidebarFloatSubMenuLineTop;
-	appSidebarFloatSubMenuLineBottom;
-	appSidebarFloatSubMenuOffset;
+  	appSidebarFloatSubMenuBottom;
+  	appSidebarFloatSubMenuArrowTop;
+  	appSidebarFloatSubMenuArrowBottom;
+  	appSidebarFloatSubMenuLineTop;
+  	appSidebarFloatSubMenuLineBottom;
+  	appSidebarFloatSubMenuOffset;
 
 	mobileMode;
 	desktopMode;
@@ -76,44 +76,44 @@ export class SidebarComponent implements AfterViewChecked {
 
 	calculateAppSidebarFloatSubMenuPosition() {
 		var targetTop = this.appSidebarFloatSubMenuOffset.top;
-    var direction = document.body.style.direction;
-    var windowHeight = window.innerHeight;
+    	var direction = document.body.style.direction;
+    	var windowHeight = window.innerHeight;
 
-    setTimeout(() => {
-      let targetElm = <HTMLElement> document.querySelector('.app-sidebar-float-submenu-container');
-      let targetSidebar = <HTMLElement> document.getElementById('sidebar');
-      var targetHeight = targetElm.offsetHeight;
-      this.appSidebarFloatSubMenuRight = 'auto';
-      this.appSidebarFloatSubMenuLeft = (this.appSidebarFloatSubMenuOffset.width + targetSidebar.offsetLeft) + 'px';
+		setTimeout(() => {
+			let targetElm = <HTMLElement> document.querySelector('.app-sidebar-float-submenu-container');
+			let targetSidebar = <HTMLElement> document.getElementById('sidebar');
+			var targetHeight = targetElm.offsetHeight;
+			this.appSidebarFloatSubMenuRight = 'auto';
+			this.appSidebarFloatSubMenuLeft = (this.appSidebarFloatSubMenuOffset.width + targetSidebar.offsetLeft) + 'px';
 
-      if ((windowHeight - targetTop) > targetHeight) {
-        this.appSidebarFloatSubMenuTop = this.appSidebarFloatSubMenuOffset.top + 'px';
-        this.appSidebarFloatSubMenuBottom = 'auto';
-        this.appSidebarFloatSubMenuArrowTop = '20px';
-        this.appSidebarFloatSubMenuArrowBottom = 'auto';
-        this.appSidebarFloatSubMenuLineTop = '20px';
-        this.appSidebarFloatSubMenuLineBottom = 'auto';
-      } else {
-        this.appSidebarFloatSubMenuTop = 'auto';
-        this.appSidebarFloatSubMenuBottom = '0';
+			if ((windowHeight - targetTop) > targetHeight) {
+				this.appSidebarFloatSubMenuTop = this.appSidebarFloatSubMenuOffset.top + 'px';
+				this.appSidebarFloatSubMenuBottom = 'auto';
+				this.appSidebarFloatSubMenuArrowTop = '20px';
+				this.appSidebarFloatSubMenuArrowBottom = 'auto';
+				this.appSidebarFloatSubMenuLineTop = '20px';
+				this.appSidebarFloatSubMenuLineBottom = 'auto';
+			} else {
+				this.appSidebarFloatSubMenuTop = 'auto';
+				this.appSidebarFloatSubMenuBottom = '0';
 
-        var arrowBottom = (windowHeight - targetTop) - 21;
-        this.appSidebarFloatSubMenuArrowTop = 'auto';
-        this.appSidebarFloatSubMenuArrowBottom = arrowBottom + 'px';
-        this.appSidebarFloatSubMenuLineTop = '20px';
-        this.appSidebarFloatSubMenuLineBottom = arrowBottom + 'px';
-      }
-    }, 0);
+				var arrowBottom = (windowHeight - targetTop) - 21;
+				this.appSidebarFloatSubMenuArrowTop = 'auto';
+				this.appSidebarFloatSubMenuArrowBottom = arrowBottom + 'px';
+				this.appSidebarFloatSubMenuLineTop = '20px';
+				this.appSidebarFloatSubMenuLineBottom = arrowBottom + 'px';
+			}
+		}, 0);
 	}
 
 	showAppSidebarFloatSubMenu(menu, e) {
-	  if (this.appSettings.appSidebarMinified) {
-      clearTimeout(this.appSidebarFloatSubMenuHide);
+	  	if (this.appSettings.appSidebarMinified) {
+			clearTimeout(this.appSidebarFloatSubMenuHide);
 
-      this.appSidebarFloatSubMenu = menu;
-      this.appSidebarFloatSubMenuOffset = e.target.getBoundingClientRect();
-      this.calculateAppSidebarFloatSubMenuPosition();
-    }
+			this.appSidebarFloatSubMenu = menu;
+			this.appSidebarFloatSubMenuOffset = e.target.getBoundingClientRect();
+			this.calculateAppSidebarFloatSubMenuPosition();
+    	}
 	}
 
 	hideAppSidebarFloatSubMenu() {

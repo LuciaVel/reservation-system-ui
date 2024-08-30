@@ -490,6 +490,19 @@
 			}
 		}
 	}
+	&.navbar .navbar-collapse {
+		@include media-breakpoint-down(md) {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 100%;
+			background: var(--#{$prefix}app-header-bg);
+			
+			& .navbar-nav {
+				display: block;
+			}
+		}
+	}
 }
 .has-scroll,
 .app-header-shadow {
