@@ -27,9 +27,9 @@ This application is a work in progress. Right now I only implemented a User Mana
 
 Implemented functions:
 - User Management (Admin) - it can add/delete/update/get users from/to the system.
+- Login and Authorization features.
 
 Implementing functions:
-- Login and Authorization features.
 - Owner page for adding their accommodations/hotel.
 - Owner page for showing which user reserved a room in their accommodations/hotel.
 - Home page for doing a reservation (Member/Guest).
